@@ -1,6 +1,7 @@
 package uiservice;
 
 import bean.Student;
+import service.IStudentService;
 import service.StudentServiceException;
 import utils.ReadUtils;
 
@@ -10,16 +11,28 @@ import java.util.List;
 
 public class StudentUiService implements IStudentUiService  {
     private ReadUtils m_readUtils;
-    private IStudentUiService m_istudentUiService;
+    private IStudentService m_istudentService;
+
 
     public StudentUiService() {
-        m_readUtils = new ReadUtils();
-        m_istudentUiService = new StudentUiService();
+        this.m_readUtils = new ReadUtils();
+        this.m_istudentService = new IStudentService() {
+            @Override
+            public void addNewStudent() {
+
+            }
+
+            @Override
+            public List<Student> showAllStudentsInformation() throws StudentServiceException {
+                return null;
+            }
+        };
+
     }
 
     @Override
     public void addNewStudent() {
-        Student student = new Student()
+        Student student = new Student();
         student.setId(m_readUtils.readInt("enter your id", "Don't leave empty"));
         student.setName(m_readUtils.readString("enter name", " can not be empty"));
         student.setDepartment(m_readUtils.readString("enter your department", "can not be empty"));
@@ -27,14 +40,14 @@ public class StudentUiService implements IStudentUiService  {
         student.setDOB(m_readUtils.readInt("enter your date of birth", " can not be empty!"));
         student.setDOJ(m_readUtils.readInt("Enter the Date you joined your school", "can not be empty!"));
         student.setSubject(m_readUtils.readString("Enter your subject", "can not be empty!"));
-        m_istudentUiService.addNewStudent();
+        m_istudentService.addNewStudent();
     }
 
     @Override
     public void showAllStudents() {
 
         try {
-            List<Student> studentList = m_istudentUiService.showAllStudentsInformation();
+            List<Student> studentList = m_istudentService.showAllStudentsInformation();
             System.out.println("All Student Information: \n");
             printList(studentList);
         }
@@ -49,12 +62,12 @@ public class StudentUiService implements IStudentUiService  {
         List<Student> studentList = null;
 
         try {
-            List<Student> allStudentList = m_istudentUiService.showAllStudentsInformation();
+            List<Student> allStudentList = m_istudentService.showAllStudentsInformation();
             studentList = new ArrayList<>();
             Iterator<Student> studentIterator = allStudentList.listIterator();
             while (studentIterator.hasNext()) {
                 Student student = studentIterator.next();
-                if (student.getId().equals(id)) {
+                if (student.getId() == student.getId()) {
                     studentList.add(student);
                 }
             }
@@ -75,7 +88,7 @@ public class StudentUiService implements IStudentUiService  {
 
         try {
             name = name.toLowerCase();
-            List<Student> allStudentList = m_istudentUiService.showAllStudentsInformation();
+            List<Student> allStudentList = m_istudentService.showAllStudentsInformation();
             studentList = new ArrayList<>();
             Iterator<Student> studentIterator = allStudentList.listIterator();
             while (studentIterator.hasNext()) {

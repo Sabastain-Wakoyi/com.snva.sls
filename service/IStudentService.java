@@ -5,6 +5,6 @@ import bean.Student;
 import java.util.List;
 
 public interface IStudentService {
-    void addNewStudent(Student student);
+    void addNewStudent();
     List<Student> showAllStudentsInformation() throws StudentServiceException;
 }

@@ -16,9 +16,10 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void addNewStudent(Student student) {
+    public void addNewStudent() {
 
         try {
+            Student student = new Student();
             studentList.add(student);
         }
         catch (UnsupportedOperationException e) {

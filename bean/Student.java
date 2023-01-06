@@ -20,6 +20,10 @@ public class Student {
         this.subject = subject;
     }
 
+    public Student() {
+
+    }
+
     public int getId() {
         return id;
     }
