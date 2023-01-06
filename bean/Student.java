@@ -1,6 +1,6 @@
 package bean;
 
-public class StudentSummary {
+public class Student {
 
     private int id;
     private int DOB;
@@ -10,7 +10,7 @@ public class StudentSummary {
     private String department;
     private String subject;
 
-    public StudentSummary(int id, int DOB, int DOJ, String name, String school, String department, String subject) {
+    public Student(int id, int DOB, int DOJ, String name, String school, String department, String subject) {
         this.id = id;
         this.DOB = DOB;
         this.DOJ = DOJ;
