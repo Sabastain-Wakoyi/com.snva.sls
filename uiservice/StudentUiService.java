@@ -1,8 +1,7 @@
 package uiservice;
 
 import bean.Student;
-import service.IStudentService;
-import service.StudentServiceImpl;
+import service.StudentServiceException;
 import utils.ReadUtils;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class StudentUiService implements IStudentUiService  {
         student.setDOB(m_readUtils.readInt("enter your date of birth", " can not be empty!"));
         student.setDOJ(m_readUtils.readInt("Enter the Date you joined your school", "can not be empty!"));
         student.setSubject(m_readUtils.readString("Enter your subject", "can not be empty!"));
-        m_istudentUiService.addNewStudent(student);
+        m_istudentUiService.addNewStudent();
     }
 
     @Override
@@ -80,7 +79,7 @@ public class StudentUiService implements IStudentUiService  {
             Iterator<Student> studentIterator = allStudentList.listIterator();
             while (studentIterator.hasNext()) {
                 Student student = studentIterator.next();
-                String Name = (student.getName() + " " + student.getName());
+                String Name = (student.getName() + " " + student.getId());
                 if (Name.contains(name)) {
                     studentList.add(student);
                 }
