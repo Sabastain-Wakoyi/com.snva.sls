@@ -8,7 +8,6 @@ public interface IStudentUiService {
 
     void addNewStudent();
     void showAllStudents();
-    void showAllStudentsInformation();
 
     List<Student> searchStudentById(String id);
 
