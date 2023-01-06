@@ -19,7 +19,7 @@ public class StudentUiService implements IStudentUiService  {
 
     @Override
     public void addNewStudent() {
-        Student student = new Student();
+        Student student = new Student()
         student.setId(m_readUtils.readInt("enter your id", "Don't leave empty"));
         student.setName(m_readUtils.readString("enter name", " can not be empty"));
         student.setDepartment(m_readUtils.readString("enter your department", "can not be empty"));
