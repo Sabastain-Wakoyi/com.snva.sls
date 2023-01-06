@@ -10,10 +10,6 @@ public class StudentServiceImpl implements IStudentService {
     private List<Student> studentList;
     private ReadUtils m_readUtil;
 
-    public StudentServiceImpl() {
-        studentList = new ArrayList<>();
-        m_readUtil = new ReadUtils();
-    }
 
     @Override
     public void addNewStudent() {
