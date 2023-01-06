@@ -2,8 +2,6 @@ package service;
 
 import bean.Student;
 import utils.ReadUtils;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentServiceImpl implements IStudentService {
@@ -35,7 +33,7 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public List<Student> showAllStudentsInformation() throws StudentServiceException {
 
-        if (studentList.size() == 0) {
+        if (studentList.size() == 1) {
             throw new StudentServiceException(StudentServiceException.No_Student_Found);
         }
         return studentList;

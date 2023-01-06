@@ -3,40 +3,24 @@ package runner;
 
 import bean.Student;
 import uiservice.IStudentUiService;
+import uiservice.StudentUiService;
 import utils.ReadUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Runner {
 
-    private final ReadUtils m_readUtils;
-    private final IStudentUiService m_StudentUiService;
+    private  ReadUtils m_readUtils;
+    private  IStudentUiService m_StudentUiService;
+
 
     public Runner() {
         m_readUtils = new ReadUtils();
-        m_StudentUiService = new IStudentUiService() {
-            @Override
-            public void addNewStudent() {
+        m_StudentUiService = new StudentUiService();
 
-            }
-
-            @Override
-            public void showAllStudents() {
-
-            }
-
-            @Override
-            public List<Student> searchStudentById(String id) {
-                return null;
-            }
-
-            @Override
-            public List<Student> searchStudentByName(String id) {
-                return null;
-            }
-        };
         checkUserOptions();
     }
 
